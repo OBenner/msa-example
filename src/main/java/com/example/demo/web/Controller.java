@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.web;
 
+import com.example.demo.model.Entity;
+import com.example.demo.backend.Service;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

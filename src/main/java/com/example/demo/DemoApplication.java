@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication
 @EnableAutoConfiguration
 @Configuration
-@Import({com.example.demo.Configuration.class})
+@Import({com.example.demo.backend.Configuration.class})
 public class DemoApplication {
 
 	public static void main(String[] args) {
