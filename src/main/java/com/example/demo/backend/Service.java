@@ -1,6 +1,5 @@
 package com.example.demo.backend;
 
-import com.example.demo.backend.Dao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @org.springframework.stereotype.Service
@@ -11,7 +10,7 @@ public class Service {
 
     public String create(String field1, double field2) {
 
-        return dao.create(field1,field2);
+        return dao.create(field1, field2);
     }
 
     public String read(String filed1) {
