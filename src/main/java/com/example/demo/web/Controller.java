@@ -1,6 +1,6 @@
 package com.example.demo.web;
 
-import com.example.demo.model.Entity;
+import com.example.demo.model.Account;
 import com.example.demo.backend.Service;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -9,36 +9,65 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * The MSA Controller.
+ */
 @RestController
-@RequestMapping("example")
+@RequestMapping("account")
 @Api(value = "customer-service", description = "Main service")
 public class Controller {
 
     @Autowired
     private Service service;
 
+    /**
+     * Create account response account.
+     *
+     * @param account the account
+     * @return the response account
+     */
     @PostMapping("create")
-    @ApiOperation(value = "Create entity")
-    public ResponseEntity createEntity(@RequestBody Entity entity) {
-        return new ResponseEntity(service.create(entity.getField1(), entity.getField2()), HttpStatus.OK);
+    @ApiOperation(value = "Create account")
+    public ResponseEntity createAccount(@RequestBody Account account) {
+        return new ResponseEntity(service.create(account.getName(), account.getAmount()), HttpStatus.OK);
     }
 
+    /**
+     * Read entity response entity.
+     *
+     * @param name the name
+     * @return the response entity
+     */
     @GetMapping("get")
     @ApiOperation(value = "Get account")
-    public ResponseEntity readEntity(@RequestHeader String field1) {
-        return new ResponseEntity(service.read(field1), HttpStatus.OK);
+    public ResponseEntity readAccount(@RequestHeader String name) {
+        return new ResponseEntity(service.read(name), HttpStatus.OK);
     }
 
-    @PutMapping("update/{field1}")
+    /**
+     * Update entity response entity.
+     *
+     * @param name   the name
+     * @param amount the amount
+     * @return the response entity
+     */
+    @PutMapping("update/{name}")
     @ApiOperation(value = "Update account")
-    public ResponseEntity updateEntity(@PathVariable String field1) {
-        return new ResponseEntity(service.update(field1), HttpStatus.OK);
+    public ResponseEntity updateAccount(@PathVariable String name,
+                                        @RequestHeader double amount) {
+        return new ResponseEntity(service.update(name, amount), HttpStatus.OK);
     }
 
-    @DeleteMapping("delete/{field1}")
+    /**
+     * Delete entity response entity.
+     *
+     * @param name the name
+     * @return the response entity
+     */
+    @DeleteMapping("delete/{name}")
     @ApiOperation(value = "Delete account")
-    public ResponseEntity deleteEntity(@PathVariable String field1) {
-        return new ResponseEntity(service.delete(field1), HttpStatus.OK);
+    public ResponseEntity deleteAccount(@PathVariable String name) {
+        return new ResponseEntity(service.delete(name), HttpStatus.OK);
     }
 
 

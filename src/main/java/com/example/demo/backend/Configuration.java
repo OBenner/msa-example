@@ -14,16 +14,29 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * The type Configuration.
+ */
 @org.springframework.context.annotation.Configuration
 @EnableSwagger2
 @Import({Dao.class})
 public class Configuration {
 
+    /**
+     * Dao class bean.
+     *
+     * @return the dao
+     */
     @Bean
     public Dao dao() {
         return new Dao();
     }
 
+    /**
+     * Api docket.
+     *
+     * @return the docket
+     */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)

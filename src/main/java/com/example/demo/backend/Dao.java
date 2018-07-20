@@ -2,23 +2,51 @@ package com.example.demo.backend;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
+/**
+ * The  Dao.
+ */
 public class Dao {
 
 
-    public String create(String field1, double field2) {
-        return "insert in db " + field1 + " and " + field2;
+    /**
+     * Create string operation.
+     *
+     * @param name   the name
+     * @param amount the amount
+     * @return the string
+     */
+    public String create(String name, double amount) {
+        return "insert in db  name: " + name + " and amount: " + amount;
     }
 
-    public String read(String field1) {
-        return "read in db " + field1;
+    /**
+     * Read string operation.
+     *
+     * @param name the name
+     * @return the string
+     */
+    public String read(String name) {
+        return "read in db " + name;
     }
 
-    public String update(String field1) {
-        return "update in db " + field1;
+    /**
+     * Update string operation.
+     *
+     * @param name   the name
+     * @param amount the amount
+     * @return the string
+     */
+    public String update(String name, double amount) {
+        return "update in db " + name+", change amount: "+amount;
     }
 
-    public String delete(String field1) {
-        return "delete in db " + field1;
+    /**
+     * Delete string operation.
+     *
+     * @param name the name
+     * @return the string
+     */
+    public String delete(String name) {
+        return "delete in db " + name;
     }
 }
